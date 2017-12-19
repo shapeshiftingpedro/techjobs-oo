@@ -16,16 +16,23 @@ import java.util.ArrayList;
 public class JobForm {
 
     @NotNull
-    @Size(min=1, message = "Name may not be empty")
+    @Size(min = 1, message = "Name may not be empty")
     private String name;
 
     @NotNull
     private int employerId;
 
+    @NotNull
+    private int locationsId;
+
+    @NotNull
+    private int coreCompetenciesId;
+
+    @NotNull
+    private int positionTypesId;
+
     /*
-        TODO #3 - Included other fields needed to create a job,
-        with correct validation attributes and display names.
-        Don't forget to add getters and setters
+        TODO #3 - Complete
      */
 
     private ArrayList<Employer> employers;
@@ -38,10 +45,16 @@ public class JobForm {
         JobData jobData = JobData.getInstance();
 
         /*
-            TODO #4 - populate the other ArrayList collections needed in the view
+            TODO #4 -Complete
         */
 
         employers = jobData.getEmployers().findAll();
+
+        locations = jobData.getLocations().findAll();
+
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+
+        positionTypes = jobData.getPositionTypes().findAll();
 
     }
 
@@ -77,12 +90,28 @@ public class JobForm {
         this.locations = locations;
     }
 
+    public int getLocationsId() {
+        return locationsId;
+    }
+
+    public void setLocationsId(int locationsId) {
+        this.locationsId = locationsId;
+    }
+
     public ArrayList<CoreCompetency> getCoreCompetencies() {
         return coreCompetencies;
     }
 
     public void setCoreCompetencies(ArrayList<CoreCompetency> coreCompetencies) {
         this.coreCompetencies = coreCompetencies;
+    }
+
+    public int getCoreCompetenciesId() {
+        return coreCompetenciesId;
+    }
+
+    public void setCoreCompetenciesId(int coreCompetenciesId) {
+        this.coreCompetenciesId = coreCompetenciesId;
     }
 
     public ArrayList<PositionType> getPositionTypes() {
@@ -92,4 +121,12 @@ public class JobForm {
     public void setPositionTypes(ArrayList<PositionType> positionTypes) {
         this.positionTypes = positionTypes;
     }
+
+
+    public int getPositionTypesId() {
+        return positionTypesId;
+    }
+
+    public void setPositionTypesId(int positionTypesId){this.positionTypesId = positionTypesId;}
+
 }
